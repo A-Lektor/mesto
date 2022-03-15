@@ -1,0 +1,11 @@
+.page {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 0 19px;
+}
+
+/*
+* {
+  outline: 1px red solid;
+}
+*/

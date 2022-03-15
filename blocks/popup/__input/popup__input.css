@@ -1,0 +1,23 @@
+.popup__input {
+  width: 100%;
+  max-width: 358px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  height: 14px;
+  margin-bottom: 10px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+#input-subname {
+  margin-top: 28px;
+}
+@media screen and (max-width: 700px) {
+  .popup__input {
+    width: calc(100% - 44px);
+  }
+}

@@ -1,0 +1,14 @@
+.overlay {
+  display: none;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  /*backdrop-filter: blur(4px); С этим намного красивее)) */
+  background-color: rgba(0,0,0,0.5);
+}
