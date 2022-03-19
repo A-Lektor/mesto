@@ -7,98 +7,86 @@
   <title>Путешествия по России</title>
 </head>
 <body class="page">
-  <div class="overlay">
-    <form class="popup">
-      <h1 class="popup__title">Редактировать профиль</h1>
-      <input type="text" value="Жак-Ив Кусто" placeholder="Имя" class="popup__input" id="input-name">
-      <div class="line-two"></div>
-      <input type="text" value="Исследователь океана" placeholder="Кто вы?" class="popup__input" id="input-subname">
-      <div class="line-two"></div>
-      <input type="button" class="popup__submit" value="Сохранить">
-      <img src="./images/CloseIcon.png" alt="Закрыть" class="popup__close">
-    </form>
-  </div>
   <header class="header">
-    <div class="logo"></div>
-    <div class="line"></div>
+    <div class="header__logo"></div>
   </header>
+  <main class="main">
   <section class="profile">
     <img src="./images/avatar.jpg" alt="Аватар" class="profile__avatar">
     <div class="profile__container">
       <div class="profile__info">
-        <p class="profile__name">Жак-Ив Кусто</p>
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__subname">Исследователь океана</p>
       </div>
-      <img src="./images/EditButton.png" alt="Редактировать профиль" class="edit-button">
+      <button aria-label="Редактировать" class="profile__edit-button"></button>
     </div>
-    <div class="add-button">
-      <img src="./images/addsprite.png" alt="Добавить" class="add-button__sprite">
-    </div>
+    <button aria-label="Добавить" class="profile__add-button">
+    </button>
   </section>
   <section class="elements">
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://i2.wp.com/s14.stc.all.kpcdn.net/share/i/4/928121/wx1080.jpg" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
         <h2 class="element__title">Новая жизнь</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <button class="element__like"></button>
       </div>
     </div>
     
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://maps.spravka-region.ru/img/38/8775354170777624.jpg" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
         <h2 class="element__title">Северск</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <button class="element__like"></button>
       </div>
     </div>
     
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://limonos.ru/uploads/posts/2017-11/15098959938886s.jpeg" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
         <h2 class="element__title">Новосибирск</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <button class="element__like"></button>
       </div>
     </div>
     
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://img5.goodfon.ru/wallpaper/nbig/a/36/moskva-siti-presnenskaia-naberezhnaia-moskva-reka-moskva-r-1.jpg" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
         <h2 class="element__title">Москва</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <button class="element__like"></button>
       </div>
     </div>
     
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://img5.goodfon.ru/wallpaper/nbig/9/c4/rossiia-sankt-peterburg-piter-leningrad-gorod-megapolis-arkh.jpg" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
-        <h2 class="element__title">Санкт-Питербург</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <h2 class="element__title">Санкт-Петербург</h2>
+        <button class="element__like"></button>
       </div>
     </div>
     
     <div class="element">
-      <div class="element__photo-box">
         <img src="https://avatars.mds.yandex.net/i?id=ce92e66787b8d1311c8c2a5e89949f90-5906238-images-thumbs&n=13" alt="" class="element__photo">
-      </div>
       <div class="element__footer">
         <h2 class="element__title">Парыж</h2>
-        <img src="./images/Vector.svg" alt="" class="element__like">
+        <button class="element__like"></button>
       </div>
     </div>
   </section>
+  </main>
   <footer class="footer">
-    © 2020 Mesto Russia
+    &copy; 2020 Mesto Russia
   </footer>
+  <div class="overlay">
+    <div class="popup">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <button class="popup__close"></button>
+      <form class="popup__form" onSubmit="return false;">
+        <input name="name" required type="text" placeholder="Имя" class="popup__input popup__input-name" id="input-name">
+        <input name="subname" required type="text" placeholder="Кто вы?" class="popup__input popup__input-subname" id="input-subname">
+        <input name="submit" type="submit"  class="popup__submit" value="Сохранить">
+      </form>
+    </div>
+  </div>
   <script src="./scripts/profile.js"></script>
 </body>
 </html> 

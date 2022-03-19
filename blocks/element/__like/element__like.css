@@ -1,6 +1,14 @@
 .element__like {
   padding-right: 5px;
   cursor: pointer;
+  transition: opacity ease .2s;
+  width: 22px;
+  height: 19px;
+  background-color: transparent;
+  border: 0;
+  background-image: url(../../../images/nonlike.svg);
+  background-repeat: no-repeat;
+  margin: 5px 5px 0 0;
 }
 .element__like:hover {
   opacity: 0.5;

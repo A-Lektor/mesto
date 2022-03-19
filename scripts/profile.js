@@ -1,33 +1,32 @@
 //   -= Окно изменений =-
-let editOpenButton = document.querySelector(".edit-button");
-let editCloseButton = document.querySelector(".popup__close");
-let editScreen = document.querySelector(".overlay");
+let popupOpenButton = document.querySelector('.edit-button');
+let popupCloseButton = document.querySelector('.popup__close');
+let overlay  = document.querySelector('.overlay');
 //   -= инпуты =-
-let inputName = document.querySelector("#input-name");
-let inputSubname = document.querySelector("#input-subname");
-let inputSubmit = document.querySelector(".popup__submit");
+let inputName = document.querySelector('#input-name');
+let inputSubname = document.querySelector('#input-subname');
+let popupSubmit = document.querySelector('.popup__form');
 //   -= имя профиля =-
-let profileName = document.querySelector(".profile__name");
-let profileSubname = document.querySelector(".profile__subname");
+let profileName = document.querySelector('.profile__name');
+let profileSubname = document.querySelector('.profile__subname');
 
 
 // -= функции открытия закрытия =-
-function editOpen () {
-  editScreen.classList.toggle("popup_opened");
+function openPopup () {
+  overlay .classList.add('popup_opened');
   inputName.setAttribute.value = profileName.textContent;
   inputSubname.setAttribute.value = profileSubname.textContent;
 }
-function editClose () {
-  editScreen.classList.toggle("popup_opened");
+function closePopup () {
+  overlay .classList.remove('popup_opened');
 }
-
-editOpenButton.addEventListener('click', editOpen);
-editCloseButton.addEventListener('click', editClose);
-
-// -=  =-
-function render () {
+function formSubmitHandler () {
   profileName.innerHTML = inputName.value;
   profileSubname.innerHTML = inputSubname.value;
+  closePopup();
 }
 
-inputSubmit.addEventListener('click', render);
+// -=  =-
+popupSubmit.addEventListener('submit', formSubmitHandler);
+popupOpenButton.addEventListener('click', openPopup);
+popupCloseButton.addEventListener('click', closePopup);

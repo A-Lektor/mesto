@@ -1,9 +1,0 @@
-.edit-button {
-  margin-left: 24px;
-  cursor: pointer;
-  align-self: center;
-  padding-bottom: 22px;
-}
-.edit-button:hover {
-  opacity: 0.6;
-}

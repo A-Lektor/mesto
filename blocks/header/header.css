@@ -3,8 +3,14 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 45px;
-  padding-bottom: 40px;
   margin: auto;
   height: 74px;
   max-width: 880px;
+  border-bottom: 1px solid rgba(84,84,84,.7);
+}
+@media screen and (max-width: 900px) {
+  .header {
+    padding: 28px 0 0 27px;
+    height: 56px;
+  }
 }

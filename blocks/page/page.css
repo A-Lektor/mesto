@@ -1,7 +1,8 @@
 .page {
-  background-color: #000;
+  background-color: #050607;
   min-height: 100vh;
-  padding: 0 19px;
+  background-image: url(../../pattern.svg);
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 /*
