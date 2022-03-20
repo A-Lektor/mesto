@@ -1,5 +1,5 @@
 //   -= Окно изменений =-
-let popupOpenButton = document.querySelector('.edit-button');
+let popupOpenButton = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__close');
 let overlay  = document.querySelector('.overlay');
 //   -= инпуты =-

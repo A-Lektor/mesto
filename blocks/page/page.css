@@ -1,7 +1,6 @@
 .page {
-  background-color: #050607;
+  background-color: #000;
   min-height: 100vh;
-  background-image: url(../../pattern.svg);
   font-family: 'Inter', Arial, sans-serif;
 }
 
