@@ -9,5 +9,7 @@
 @media screen and (max-width: 480px) {
   .popup {
     max-width: calc(100% - 38px);
+    height: 322px;
+    padding-bottom: 0;
   }
 }

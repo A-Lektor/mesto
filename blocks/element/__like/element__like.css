@@ -8,7 +8,7 @@
   border: 0;
   background-image: url(../../../images/nonlike.svg);
   background-repeat: no-repeat;
-  margin: 5px 5px 0 0;
+  margin: 2px 5px 0 0;
 }
 .element__like:hover {
   opacity: 0.5;
