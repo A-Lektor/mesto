@@ -1,15 +1,14 @@
 //   -= Окно изменений =-
 let popupOpenButton = document.querySelector('.profile__edit-button');
-let popupCloseButton = document.querySelector('.popup__close');
-let overlay = document.querySelector('.overlay');
+let popupCloseButton = document.querySelector('#profile-close');
+let overlay = document.querySelector('#profile-overlay');
 //   -= инпуты =-
 let inputName = document.querySelector('#input-name');
 let inputSubname = document.querySelector('#input-subname');
-let popupForm = document.querySelector('.popup__form');
+let popupForm = document.querySelector('#profile-form');
 //   -= имя профиля =-
 let profileName = document.querySelector('.profile__name');
 let profileSubname = document.querySelector('.profile__subname');
-
 
 // -= функции открытия закрытия =-
 function openPopup () {
@@ -28,7 +27,7 @@ function formSubmitHandler (event) {
 }
 
 
-// -=  =-
+//  
 popupForm.addEventListener('submit', formSubmitHandler);
 popupOpenButton.addEventListener('click', openPopup);
 popupCloseButton.addEventListener('click', closePopup);

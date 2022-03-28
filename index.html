@@ -24,71 +24,68 @@
     </button>
   </section>
   <section class="elements">
-
+    <!--
     <div class="element">
-      <img src="https://i2.wp.com/s14.stc.all.kpcdn.net/share/i/4/928121/wx1080.jpg" alt="Новая жизнь" class="element__photo">
+      <button class="element__remove" aria-label="Удалить" type="button"></button>
+      <img src="https://images.unsplash.com/photo-1647471922959-e5515db63a28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80" alt="Новая жизнь" class="element__photo">
       <div class="element__footer">
         <h2 class="element__title">Новая жизнь</h2>
         <button aria-label="Мне нравится!" type="button" class="element__like"></button>
       </div>
     </div>
-    
-    <div class="element">
-      <img src="https://maps.spravka-region.ru/img/38/8775354170777624.jpg" alt="Северск" class="element__photo">
-      <div class="element__footer">
-        <h2 class="element__title">Северск</h2>
-        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
-      </div>
-    </div>
-    
-    <div class="element">
-      <img src="https://limonos.ru/uploads/posts/2017-11/15098959938886s.jpeg" alt="Новосибирск" class="element__photo">
-      <div class="element__footer">
-        <h2 class="element__title">Новосибирск</h2>
-        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
-      </div>
-    </div>
-    
-    <div class="element">
-      <img src="https://img5.goodfon.ru/wallpaper/nbig/a/36/moskva-siti-presnenskaia-naberezhnaia-moskva-reka-moskva-r-1.jpg" alt="Москва" class="element__photo">
-      <div class="element__footer">
-        <h2 class="element__title">Москва</h2>
-        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
-      </div>
-    </div>
-    
-    <div class="element">
-      <img src="https://img5.goodfon.ru/wallpaper/nbig/9/c4/rossiia-sankt-peterburg-piter-leningrad-gorod-megapolis-arkh.jpg" alt="Санкт-Петербург" class="element__photo">
-      <div class="element__footer">
-        <h2 class="element__title">Санкт-Петербург</h2>
-        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
-      </div>
-    </div>
-    
-    <div class="element">
-      <img src="https://avatars.mds.yandex.net/i?id=ce92e66787b8d1311c8c2a5e89949f90-5906238-images-thumbs&n=13" alt="Парыж" class="element__photo">
-      <div class="element__footer">
-        <h2 class="element__title">Парыж</h2>
-        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
-      </div>
-    </div>
+  -->
 
   </section>
   </main>
   <footer class="footer">
     &copy; 2022 Mesto Russia
   </footer>
-  <div class="overlay">
+
+  <div class="overlay" id="profile-overlay">
     <div class="popup">
       <h2 class="popup__title">Редактировать профиль</h2>
-      <button type="button"  aria-label="Закрыть" class="popup__close"></button>
-      <form class="popup__form" name="edit-popup">
+      <button type="button"  aria-label="Закрыть" class="popup__close" id="profile-close"></button>
+      <form class="popup__form" name="edit-popup" id="profile-form">
         <input name="name" required type="text" placeholder="Имя" class="popup__input popup__input_type_name" id="input-name">
         <input name="subname" required type="text" placeholder="Кто вы?" class="popup__input popup__input_type_subname" id="input-subname">
         <input name="submit" type="submit"  class="popup__submit" value="Сохранить">
       </form>
     </div>
   </div>
+
+  <div class="overlay" id="element-overlay">
+    <div class="popup">
+      <h2 class="popup__title">Новое место</h2>
+      <button type="button"  aria-label="Закрыть" class="popup__close" id="element-close"></button>
+      <form class="popup__form" name="edit-popup" id="element-form">
+        <input name="name" required type="text" placeholder="Название" class="popup__input popup__input_type_name" id="element-input-title">
+        <input name="subname" required type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_subname" id="element-input-url">
+        <input name="submit" type="submit"  class="popup__submit" value="Создать">
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="image-overlay">
+    <div class="popup popup_type_image">
+      <button type="button"  aria-label="Закрыть" class="popup__close" id="image-close"></button>
+      <img class="popup__image" src="none" alt="none" onerror='src="https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"'>
+      <h2 class="popup__title popup__title_type_image"></h2>
+    </div>
+  </div>
+
+  <template id="element-sample">
+    <div class="element">
+      <button class="element__remove" aria-label="Удалить" type="button"></button>
+      <img src="none" alt="Новая жизнь" class="element__photo" onerror='src="https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"'>
+        <!-- onerror необходим на случай, если добавленная картинка перестанет существовать в интернете -->
+      <div class="element__footer">
+        <h2 class="element__title"></h2>
+        <button aria-label="Мне нравится!" type="button" class="element__like"></button>
+      </div>
+    </div>
+  </template>
+
   <script src="./scripts/profile.js"></script>
+  <script src="./scripts/element.js"></script>
 </body>
 </html> 

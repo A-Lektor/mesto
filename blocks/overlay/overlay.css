@@ -1,5 +1,6 @@
 .overlay {
-  display: none;
+  visibility: hidden;
+  display: flex;
   z-index: 1;
   position: fixed;
   top: 0;
@@ -11,4 +12,6 @@
   align-items: center;
   /*backdrop-filter: blur(4px); С этим намного красивее)) */
   background-color: rgba(0,0,0,0.5);
+  transition: all ease 0.55s;
+  opacity: 0;
 }
