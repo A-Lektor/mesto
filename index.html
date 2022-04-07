@@ -18,9 +18,9 @@
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <p class="profile__subname">Исследователь океана</p>
       </div>
-      <button type="button" aria-label="Редактировать" class="profile__edit-button"></button>
+      <button type="button" aria-label="Редактировать" class="open-button profile__edit-button profile-edit"></button>
     </div>
-    <button type="button" aria-label="Добавить" class="profile__add-button">
+    <button type="button" aria-label="Добавить" class="open-button profile__add-button element-add">
     </button>
   </section>
   <section class="elements">
@@ -29,39 +29,52 @@
   <footer class="footer">
     &copy; 2022 Mesto Russia
   </footer>
-  <div class="overlay" id="profile-overlay">
-    <div class="popup">
-      <h2 class="popup__title">Редактировать профиль</h2>
-      <button type="button"  aria-label="Закрыть" class="popup__close" id="profile-close"></button>
-      <form class="popup__form" name="edit-popup" id="profile-form">
-        <input name="name" required type="text" placeholder="Имя" class="popup__input popup__input_type_name" id="input-name">
-        <input name="subname" required type="text" placeholder="Кто вы?" class="popup__input popup__input_type_subname" id="input-subname">
-        <input name="submit" type="submit"  class="popup__submit" value="Сохранить">
-      </form>
+
+
+  <div class="popup">
+    <div class="overlay profile-edit" id="profile-edit">
+      <div class="popup__body popup_type_profile">
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <button type="button"  aria-label="Закрыть" class="popup__close profile-edit" id="profile-close"></button>
+        <form class="popup__form" name="edit-popup" id="profile-form">
+          <input name="name" required type="text" placeholder="Имя" class="popup__input popup__input_type_name" id="input-name">
+          <input name="subname" required type="text" placeholder="Кто вы?" class="popup__input popup__input_type_subname" id="input-subname">
+          <button name="submit" type="submit"  class="popup__submit">Сохранить</button>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="overlay" id="element-overlay">
-    <div class="popup">
-      <h2 class="popup__title">Новое место</h2>
-      <button type="button"  aria-label="Закрыть" class="popup__close" id="element-close"></button>
-      <form class="popup__form" name="edit-popup" id="element-form">
-        <input name="name" required type="text" placeholder="Название" class="popup__input popup__input_type_name" id="element-input-title">
-        <input name="subname" required type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_subname" id="element-input-url">
-        <input name="submit" type="submit"  class="popup__submit" value="Создать">
-      </form>
+
+  <div class="popup">
+    <div class="overlay element-add" id="element-add">
+      <div class="popup__body popup_type_element">
+        <h2 class="popup__title">Новое место</h2>
+        <button type="button"  aria-label="Закрыть" class="popup__close element-add" id="element-close"></button>
+        <form class="popup__form" name="edit-popup" id="element-form">
+          <input name="name" required type="text" placeholder="Название" class="popup__input popup__input_type_name" id="element-input-title">
+          <input name="subname" required type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_subname" id="element-input-url">
+          <button name="submit" type="submit"  class="popup__submit">Создать</button>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="overlay" id="image-overlay">
-    <div class="popup popup_type_image">
-      <button type="button"  aria-label="Закрыть" class="popup__close" id="image-close"></button>
-      <img class="popup__image" src="none" alt="none" onerror='src="https://c.tenor.com/FcVg5W9zZJQAAAAM/error.gif"'>
-      <h2 class="popup__title popup__title_type_image"></h2>
+
+
+  <div class="popup">
+    <div class="overlay" id="image-overlay">
+      <div class="popup__body popup_type_image">
+        <button type="button"  aria-label="Закрыть" class="popup__close image-overlay" id="image-close"></button>
+        <img class="popup__image" src="none" alt="none" onerror='src="https://c.tenor.com/FcVg5W9zZJQAAAAM/error.gif"'>
+        <h2 class="popup__title popup__title_type_image"></h2>
+      </div>
     </div>
   </div>
+
+
   <template id="element-sample">
     <div class="element">
       <button class="element__remove" aria-label="Удалить" type="button"></button>
-      <img src="none" alt="Новая жизнь" class="element__photo" onerror='src="https://c.tenor.com/FcVg5W9zZJQAAAAM/error.gif"'>
+      <img src="none" alt="Новая жизнь" class="open-button element__photo" onerror='src="https://c.tenor.com/FcVg5W9zZJQAAAAM/error.gif"'>
         <!-- onerror необходим на случай, если добавленная картинка перестанет существовать в интернете -->
       <div class="element__footer">
         <h2 class="element__title"></h2>
@@ -69,7 +82,9 @@
       </div>
     </div>
   </template>
-  <script src="./scripts/profile.js"></script>
-  <script src="./scripts/element.js"></script>
+
+  <script src="./scripts/initialElements.js"></script>
+  <script src="./scripts/exp.js"></script>
+
 </body>
 </html> 
