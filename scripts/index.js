@@ -32,6 +32,8 @@ const popupImageTitle = document.querySelector('.popup__title_type_image');
 /////////////////// Функции ///////////////////
 function openPopup(popup) {                                       //// открыть попап
   popup.classList.add('popup_opened');
+  inputName.value = profileName.textContent;
+  inputSubname.value = profileSubname.textContent;
 }
 function closePopup(popup) {                                      //// закрыть попап
   popup.classList.remove('popup_opened');
@@ -43,7 +45,7 @@ function handleProfileFormSubmit (event) {                        //// реда�
   closePopup(popupProfile);
 }
 
-function CreateCard(imgUrl, imgName) {                            //// Добавленеие карточки на страницу
+function createCard(imgUrl, imgName) {                            //// Добавленеие карточки на страницу
   const userElement = elementSample.querySelector('.element').cloneNode(true);
   const userElementPhoto = userElement.querySelector('.element__photo');
   userElementPhoto.src = imgUrl;
@@ -63,14 +65,14 @@ function CreateCard(imgUrl, imgName) {                            //// Доба�
 }
 function handleElementFormSubmit (event) {                      //// редактирование карточки
   event.preventDefault();
-  elements.prepend(CreateCard(inputUrl.value, inputTitle.value));
+  elements.prepend(createCard(inputUrl.value, inputTitle.value));
   inputUrl.value = "";
   inputTitle.value = "";
-  closePopup(popupCloseElementButton);
+  closePopup(popupElement);
 }
 
 initialElements.forEach(function (item) {                       //// перебор массива, добавление карточек
-  elements.prepend(CreateCard(item.link, item.name));
+  elements.prepend(createCard(item.link, item.name));
 });
 /////////////////// Обработчики событий ///////////////////
 // откртие
