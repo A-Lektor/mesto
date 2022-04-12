@@ -32,8 +32,6 @@ const popupImageTitle = document.querySelector('.popup__title_type_image');
 /////////////////// Функции ///////////////////
 function openPopup(popup) {                                       //// открыть попап
   popup.classList.add('popup_opened');
-  inputName.value = profileName.textContent;
-  inputSubname.value = profileSubname.textContent;
 }
 function closePopup(popup) {                                      //// закрыть попап
   popup.classList.remove('popup_opened');
@@ -77,7 +75,7 @@ initialElements.forEach(function (item) {                       //// переб�
 /////////////////// Обработчики событий ///////////////////
 // откртие
 popupOpenElementButton.addEventListener('click', () => { openPopup(popupElement); });
-popupOpenProfileButton.addEventListener('click', () => { openPopup(popupProfile); });
+popupOpenProfileButton.addEventListener('click', () => { inputName.value = profileName.textContent; inputSubname.value = profileSubname.textContent; openPopup(popupProfile);});
 // закрытие
 popupCloseElementButton.addEventListener('click', () => { closePopup(popupElement); });
 popupCloseProfileButton.addEventListener('click', () => { closePopup(popupProfile); });
