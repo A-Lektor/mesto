@@ -28,14 +28,24 @@ const profileSubname = document.querySelector('.profile__subname');
 /// попап раскрытой картинки
 const popupImage = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__title_type_image');
+// все попапы
+const popups = document.querySelector('.popups');
+
 
 /////////////////// Функции ///////////////////
 function openPopup(popup) {                                       //// открыть попап
   popup.classList.add('popup_opened');
 }
-function closePopup(popup) {                                      //// закрыть попап
-  popup.classList.remove('popup_opened');
+function closePopup(popup) {                                       //// закрыть попап
+  if (popup === popupElement || popup === popupProfile || popup === popupPhoto) {
+   popup.classList.remove('popup_opened');
+  } else if (popup.target.classList.contains('popup__close')) {
+  popup.target.closest('.overlay').classList.remove('popup_opened');
+ } else if (popup.target.classList.contains('overlay')) {
+  popup.target.classList.remove('popup_opened');
+ }
 }
+
 function handleProfileFormSubmit (event) {                        //// редактирование профиля
   event.preventDefault();
   profileName.textContent = inputName.value;
@@ -49,18 +59,22 @@ function createCard(imgUrl, imgName) {                            //// Доба�
   userElementPhoto.src = imgUrl;
   userElementPhoto.alt = imgName;
   userElement.querySelector('.element__title').textContent = imgName;
-  userElement.querySelector('.element__like').addEventListener('click', function (event) {
-    event.target.classList.toggle('element__like_active'); }); 
-  userElement.querySelector('.element__remove').addEventListener('click', function (event) {
-    event.target.closest('.element').remove(); });
-  userElement.querySelector('.element__photo').addEventListener('click', function (event) {
-    popupImage.setAttribute('src', imgUrl);
-    popupImage.setAttribute('alt', imgName);
-    popupImageTitle.textContent = imgName;
-    openPopup(popupPhoto);
-  });
   return userElement;
 }
+
+function cardActions (event) {
+  if (event.target.classList.contains('element__like')) {
+    event.target.classList.toggle('element__like_active');
+  } else if (event.target.classList.contains('element__remove')) {
+    event.target.closest('.element').remove();
+  } else if (event.target.classList.contains('element__photo')) {
+    popupImage.setAttribute('src', event.target.getAttribute('src'));
+    popupImage.setAttribute('alt', event.target.closest('.element').querySelector('.element__title').textContent);
+    popupImageTitle.textContent = event.target.closest('.element').querySelector('.element__title').textContent;
+    openPopup(popupPhoto);
+  }
+}
+
 function handleElementFormSubmit (event) {                      //// редактирование карточки
   event.preventDefault();
   elements.prepend(createCard(inputUrl.value, inputTitle.value));
@@ -77,9 +91,30 @@ initialElements.forEach(function (item) {                       //// переб�
 popupOpenElementButton.addEventListener('click', () => { openPopup(popupElement); });
 popupOpenProfileButton.addEventListener('click', () => { inputName.value = profileName.textContent; inputSubname.value = profileSubname.textContent; openPopup(popupProfile);});
 // закрытие
+popups.addEventListener('click', closePopup);
+
+
+document.addEventListener('keydown', function (evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popupElement);
+      closePopup(popupProfile);
+      closePopup(popupPhoto);
+    }
+})
+/*
 popupCloseElementButton.addEventListener('click', () => { closePopup(popupElement); });
 popupCloseProfileButton.addEventListener('click', () => { closePopup(popupProfile); });
 popupClosePhotoButton.addEventListener('click', () => { closePopup(popupPhoto); });
+*/
 // Отправка формы
 popupFormElement.addEventListener('submit', handleElementFormSubmit);
 popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
+// карточки: лайк/удалить/открыть
+elements.addEventListener('click', () => { cardActions(event); });
+
+
+
+
+
+
+
