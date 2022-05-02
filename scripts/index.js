@@ -1,6 +1,6 @@
 /////////////////// переменные ///////////////////
 /// кнопки открыть
-const popupOpenElementButton = document.querySelector('.profile__add-button');
+const popupOpenCardButton = document.querySelector('.profile__add-button');
 const popupOpenProfileButton = document.querySelector('.profile__edit-button');
 /// кнопки закрыть
 const popupCloseElementButton = document.querySelector('#element-close');
@@ -35,10 +35,10 @@ const popups = document.querySelector('.popups');
 /////////////////// Функции ///////////////////
 function openPopup(popup) {                                       //// открыть попап
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', doSomething);
+  document.addEventListener('keydown', handleEscClose);
 }
 
-function doSomething(evt) {                                       //// закрыть попап по нажатию ESC
+function handleEscClose(evt) {                                       //// закрыть попап по нажатию ESC
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
@@ -46,7 +46,7 @@ function doSomething(evt) {                                       //// закр�
 }
 
 function closePopup(popup) {                         //// закрыть попап
-  document.removeEventListener('keydown', doSomething);
+  document.removeEventListener('keydown', handleEscClose);
   popup.classList.remove('popup_opened');
 }
 
@@ -95,14 +95,14 @@ initialElements.forEach(function (item) {                       //// переб�
 
 /////////////////// Обработчики событий ///////////////////
 // откртие
-popupOpenElementButton.addEventListener('click', () => openPopup(popupCard));
+popupOpenCardButton.addEventListener('click', () => openPopup(popupCard));
 popupOpenProfileButton.addEventListener('click', () => { inputName.value = profileName.textContent; inputSubname.value = profileSubname.textContent; openPopup(popupProfile);});
 
 // закрытие
 popups.addEventListener('click', (evt)=> { if (evt.target.classList.contains('overlay')) { closePopup(evt.target) } });
-popupCloseElementButton.addEventListener('click', () => { closePopup(popupCard); });
-popupCloseProfileButton.addEventListener('click', () => { closePopup(popupProfile); });
-popupClosePhotoButton.addEventListener('click', () => { closePopup(popupPhoto); });
+popupCloseElementButton.addEventListener('click', () => closePopup(popupCard) );
+popupCloseProfileButton.addEventListener('click', () => closePopup(popupProfile) );
+popupClosePhotoButton.addEventListener('click', () =>  closePopup(popupPhoto) );
 // Отправка формы
 popupFormElement.addEventListener('submit', handleCardFormSubmit);
 popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
