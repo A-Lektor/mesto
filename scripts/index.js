@@ -95,8 +95,12 @@ initialElements.forEach(function (item) {                       //// переб�
 
 /////////////////// Обработчики событий ///////////////////
 // откртие
-popupOpenCardButton.addEventListener('click', () => openPopup(popupCard));
-popupOpenProfileButton.addEventListener('click', () => { inputName.value = profileName.textContent; inputSubname.value = profileSubname.textContent; openPopup(popupProfile);});
+popupOpenCardButton.addEventListener("click", () => openPopup(popupCard));
+popupOpenProfileButton.addEventListener("click", () => {
+  inputName.value = profileName.textContent;
+  inputSubname.value = profileSubname.textContent;
+  openPopup(popupProfile);
+});
 
 // закрытие
 popups.addEventListener('click', (evt)=> { if (evt.target.classList.contains('overlay')) { closePopup(evt.target) } });
