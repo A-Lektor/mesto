@@ -18,4 +18,3 @@ export const initialElements = [
   name: 'Белка :)',
   link: 'https://i.pinimg.com/originals/07/89/f2/0789f27aa56a729edc08862f0f1af464.gif'}
 ];
-
