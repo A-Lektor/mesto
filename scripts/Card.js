@@ -3,7 +3,7 @@ export class Card {
     constructor(title, image, template) {
       this._title = title;
       this._image = image;
-      this._template = template;
+      this._template = document.querySelector(template); //Сделал так, надеюсь правильно понял
     }
   
     _getTemplate() {
@@ -25,7 +25,7 @@ export class Card {
         event.target.classList.toggle('element__like_active'); });
       this._element.querySelector('.element__remove').addEventListener('click', function (event) {
         event.target.closest('.element').remove(); });
-      this._element.querySelector('.element__photo').addEventListener('click', function (event) {
+      this._element.querySelector('.element__photo').addEventListener('click', () => {
         popupImage.setAttribute('src', this._image);
         popupImage.setAttribute('alt', this._title);
         popupImageTitle.textContent = this._title;

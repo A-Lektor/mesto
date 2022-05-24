@@ -23,8 +23,6 @@ const inputTitle = document.querySelector('#element-input-title');
 const inputUrl = document.querySelector('#element-input-url');
 /// контейнер карточек
 const cardList = document.querySelector('.elements');
-/// шблон карточки
-const cardSample = document.querySelector('#element-sample');
 /// информация о профиле
 const profileName = document.querySelector('.profile__name');
 const profileSubname = document.querySelector('.profile__subname');
@@ -71,7 +69,7 @@ const enableValidationProfile = new FormValidator(config, popupFormProfile);
   }
   function handleCardFormSubmit (event) {                      //// редактирование карточки
     const formButton = event.target.querySelector('.popup__submit');
-    const card = new Card(inputTitle.value, inputUrl.value, cardSample);
+    const card = createNewCard(inputTitle.value, inputUrl.value, '#element-sample');
     event.preventDefault();
     cardList.prepend(card.generateCard());
     inputUrl.value = "";
@@ -79,9 +77,13 @@ const enableValidationProfile = new FormValidator(config, popupFormProfile);
     enableValidationElement.lockButtonState();
     closePopup(popupCard);
   }
+
+  function createNewCard (name, link, template) {
+    return new Card(name, link, template);
+  }
   
 initialElements.forEach((item) => {
-  const card = new Card(item.name, item.link, cardSample);
+  const card = createNewCard(item.name, item.link, '#element-sample');
   const cardElement = card.generateCard();
   cardList.prepend(cardElement);
 });
