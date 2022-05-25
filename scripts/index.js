@@ -68,10 +68,8 @@ const enableValidationProfile = new FormValidator(config, popupFormProfile);
     closePopup(popupProfile);
   }
   function handleCardFormSubmit (event) {                      //// редактирование карточки
-    const formButton = event.target.querySelector('.popup__submit');
-    const card = createNewCard(inputTitle.value, inputUrl.value, '#element-sample');
     event.preventDefault();
-    cardList.prepend(card.generateCard());
+    cardList.prepend(createNewCard(inputTitle.value, inputUrl.value));
     inputUrl.value = "";
     inputTitle.value = "";
     enableValidationElement.lockButtonState();
@@ -79,13 +77,12 @@ const enableValidationProfile = new FormValidator(config, popupFormProfile);
   }
 
   function createNewCard (name, link, template) {
-    return new Card(name, link, template);
+    return new Card(name, link, '#element-sample').generateCard();
   }
   
 initialElements.forEach((item) => {
-  const card = createNewCard(item.name, item.link, '#element-sample');
-  const cardElement = card.generateCard();
-  cardList.prepend(cardElement);
+  const card = createNewCard(item.name, item.link); 
+  cardList.prepend(card);
 });
 
 enableValidationElement.enableValidation();
