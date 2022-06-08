@@ -1,9 +1,10 @@
-import { popupImage, popupImageTitle, popupPhoto, openPopup } from "./index.js";
+import { imagePopup } from "./index.js";
 export class Card {
-    constructor(title, image, template) {
+    constructor(title, image, template, handleCardClick) {
       this._title = title;
       this._image = image;
-      this._template = document.querySelector(template); //Сделал так, надеюсь правильно понял
+      this._template = document.querySelector(template);
+      this.handleCardClick = handleCardClick;
     }
   
     _getTemplate() {
@@ -26,10 +27,7 @@ export class Card {
       this._element.querySelector('.element__remove').addEventListener('click', function (event) {
         event.target.closest('.element').remove(); });
       this._element.querySelector('.element__photo').addEventListener('click', () => {
-        popupImage.setAttribute('src', this._image);
-        popupImage.setAttribute('alt', this._title);
-        popupImageTitle.textContent = this._title;
-        openPopup(popupPhoto);
+        this.handleCardClick(this._image, this._title);
       });
     } 
   }
