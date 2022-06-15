@@ -1,32 +1,28 @@
-import { initialElements } from "./initialElements.js";
-import { Card } from "./Card.js";
-import { FormValidator } from "./FormValidator.js";
+import { 
+  initialElements,
+  popupOpenCardButton,
+  popupOpenProfileButton,
+  popupFormElement,
+  popupFormProfile,
+  inputName,
+  inputSubname,
+  inputTitle,
+  inputUrl,
+  config
+} from "../utils/constants.js";
 
-import { Section } from "./Section.js";
 
-import { PopupWithForm } from "./PopupWithForm.js";
-import { PopupWithImage } from "./PopupWithImage.js";
 
-import { UserInfo } from "./UserInfo.js";
-/// кнопки открыть
-const popupOpenCardButton = document.querySelector('.profile__add-button');
-const popupOpenProfileButton = document.querySelector('.profile__edit-button');
-/// сами формы
-const popupFormElement = document.querySelector('#element-form');
-const popupFormProfile = document.querySelector('#profile-form');
-/// инпуты форм
-const inputName = document.querySelector('#input-name');
-const inputSubname = document.querySelector('#input-subname');
-const inputTitle = document.querySelector('#element-input-title');
-const inputUrl = document.querySelector('#element-input-url');
-// валидация
-const config = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: 'popup__submit_condition_disabled',
-  inputErrorClass: 'popup__input_type_error',
-}
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+
+import { Section } from "../components/Section.js";
+
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+
+import { UserInfo } from "../components/UserInfo.js";
+
 const enableValidationElement = new FormValidator(config, popupFormElement);
 const enableValidationProfile = new FormValidator(config, popupFormProfile);
 
