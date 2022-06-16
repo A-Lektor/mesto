@@ -38,11 +38,11 @@ const cardRenderer = new Section({                          //RENDER
 const elementPopup = new PopupWithForm({                    //POPUP CARD
   popupSelector: '#element-add',
   handleFormSubmit: () => {
-    cardRenderer.addItem(createNewCard(inputTitle.value, inputUrl.value));
-    inputUrl.value = "";
-    inputTitle.value = "";
+    cardRenderer.addItem(createNewCard(elementPopup._getInputValues().name, elementPopup._getInputValues().subname));
     enableValidationElement.lockButtonState();
     elementPopup.close();
+    inputUrl.value = "";
+    inputTitle.value = "";
   }
 });
 elementPopup.setEventListeners();
@@ -50,7 +50,7 @@ elementPopup.setEventListeners();
 const profilePopup = new PopupWithForm({                   //POPUP PROFILE
   popupSelector: '#profile-edit',
   handleFormSubmit: () => {
-    userInfo.setUserInfo(inputName.value, inputSubname.value);
+    userInfo.setUserInfo(profilePopup._getInputValues().name, profilePopup._getInputValues().subname);
     profilePopup.close();
   }
 });
@@ -85,10 +85,10 @@ enableValidationProfile.enableValidation();
 popupOpenCardButton.addEventListener("click", () => elementPopup.open());
 popupOpenProfileButton.addEventListener("click", () => {
 
-  inputName.value = userInfo.getUserInfo().profileName;
-  inputSubname.value = userInfo.getUserInfo().profileSubname;
+  const data = userInfo.getUserInfo();
+  inputName.value = data.profileName;
+  inputSubname.value = data.profileSubname;
   profilePopup.open()
 
 });
 
-export { config, imagePopup }
